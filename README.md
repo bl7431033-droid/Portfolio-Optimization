@@ -130,7 +130,6 @@ An Efficient Frontier visualization is generated and saved in the `outputs/` dir
 
 ## Project Structure
 
-
 portfolio-optimization/
 
 README.md
@@ -152,9 +151,6 @@ src/
 outputs/
     efficient_frontier.png
     optimal_portfolio.txt
-
-
----
 
 ## Technology Stack
 
