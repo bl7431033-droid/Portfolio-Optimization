@@ -1,4 +1,4 @@
-# 📊 Portfolio Optimization with Modern Portfolio Theory
+# Portfolio Optimization with Modern Portfolio Theory
 
 ## Overview
 
