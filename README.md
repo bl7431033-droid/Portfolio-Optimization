@@ -1,196 +1,136 @@
-Portfolio Optimization with Modern Portfolio Theory
-Overview
+# Portfolio Optimization with Modern Portfolio Theory
 
-This project implements a portfolio optimization framework based on Modern Portfolio Theory (MPT) to determine the optimal asset allocation that maximizes risk-adjusted return.
+## Overview
+
+This project implements a portfolio optimization framework based on **Modern Portfolio Theory (MPT)** to determine the optimal asset allocation that maximizes risk-adjusted return.
 
 Using historical market data, the model:
 
-Estimates expected returns and covariance matrix
-
-Simulates thousands of random portfolios via Monte Carlo methods
-
-Computes portfolio volatility and Sharpe Ratio
-
-Identifies the maximum Sharpe portfolio
-
-Visualizes the Efficient Frontier
+- Estimates expected returns and covariance matrix  
+- Simulates thousands of random portfolios using Monte Carlo methods  
+- Computes portfolio volatility and Sharpe Ratio  
+- Identifies the maximum Sharpe portfolio  
+- Visualizes the Efficient Frontier  
 
 The objective is to construct an optimal portfolio allocation under a mean-variance framework.
 
-Mathematical Framework
+---
+
+## Assets
+
+Assets used in this project:
+
+- AAPL
+- MSFT
+- NVDA
+- SPY
+
+Historical price data is downloaded from **Yahoo Finance** using the `yfinance` Python library.
+
+Data period:
+
+2018 - Present
+
+Frequency:
+
+Daily adjusted close prices.
+
+---
+
+## Quantitative Model
 
 Let:
 
-𝜇
-μ = expected return vector
+- **μ** = expected return vector  
+- **Σ** = covariance matrix  
+- **w** = portfolio weights  
 
-Σ
-Σ = covariance matrix
+### Expected Portfolio Return
 
-𝑤
-w = portfolio weights
+Rp = wᵀ μ
 
-Expected Portfolio Return
-𝑅
-𝑝
-=
-𝑤
-𝑇
-𝜇
-R
-p
-	​
+### Portfolio Volatility
 
-=w
-T
-μ
-Portfolio Volatility
-𝜎
-𝑝
-=
-𝑤
-𝑇
-Σ
-𝑤
-σ
-p
-	​
+σp = √(wᵀ Σ w)
 
-=
-w
-T
-Σw
-	​
+### Sharpe Ratio
 
-Sharpe Ratio
-𝑆
-=
-𝑅
-𝑝
-−
-𝑅
-𝑓
-𝜎
-𝑝
-S=
-σ
-p
-	​
-
-R
-p
-	​
-
-−R
-f
-	​
-
-	​
-
+S = (Rp − Rf) / σp
 
 Where:
 
-𝑅
-𝑓
-R
-f
-	​
+- **Rf** = risk-free rate (assumed 0 if not specified)
 
- = risk-free rate (assumed 0 if not specified)
+The optimal portfolio is defined as the weight vector **w*** that maximizes the Sharpe Ratio.
 
-The optimal portfolio is defined as the weight vector 
-𝑤
-∗
-w
-∗
- that maximizes the Sharpe Ratio.
+---
 
-Data
+## Methodology
 
-Source: Yahoo Finance (via yfinance)
+### 1. Data Collection
 
-Assets:
+Historical adjusted closing prices are downloaded using `yfinance`.
 
-AAPL
-
-MSFT
-
-NVDA
-
-SPY
-
-Period: From 2018-01-01 onward
-
-Frequency: Daily adjusted close prices
+### 2. Feature Engineering
 
 Daily returns are computed using percentage change.
 
-Methodology
-1. Data Collection
+Key statistics:
 
-Historical adjusted closing prices are downloaded programmatically.
+- Mean return vector
+- Covariance matrix
 
-2. Feature Engineering
+These metrics form the basis of the mean-variance portfolio model.
 
-Daily return calculation
+### 3. Monte Carlo Portfolio Simulation
 
-Estimation of mean return vector
+To explore possible allocations, the model generates thousands of random portfolios.
 
-Estimation of covariance matrix
+For each portfolio:
 
-3. Monte Carlo Simulation
+1. Generate random weights
+2. Normalize weights so that the sum equals 1
+3. Compute expected return
+4. Compute portfolio volatility
+5. Compute Sharpe Ratio
 
-Randomly generate 5000+ portfolio weight vectors
+More than **5000 portfolios** are simulated.
 
-Normalize weights such that 
-∑
-𝑤
-𝑖
-=
-1
-∑w
-i
-	​
+### 4. Optimal Portfolio Selection
 
-=1
+The portfolio with the **maximum Sharpe Ratio** is selected as the optimal allocation.
 
-Compute portfolio return, volatility, and Sharpe Ratio
+### 5. Efficient Frontier Visualization
 
-Store simulation results
+Each simulated portfolio is plotted based on:
 
-4. Optimal Portfolio Selection
+- X-axis: Portfolio Volatility
+- Y-axis: Portfolio Return
 
-The portfolio with the highest Sharpe Ratio is selected as the optimal allocation.
+The optimal portfolio is highlighted on the Efficient Frontier.
 
-5. Efficient Frontier Visualization
+---
 
-Scatter plot of:
+## Example Output
 
-X-axis: Portfolio Volatility
+Example optimal portfolio:
 
-Y-axis: Portfolio Return
-
-The maximum Sharpe portfolio is highlighted.
-
-Example Output
-
-Optimal Portfolio Allocation (example):
-
-AAPL: 35%
-
-MSFT: 25%
-
-NVDA: 20%
-
+AAPL: 35%  
+MSFT: 25%  
+NVDA: 20%  
 SPY: 20%
 
 Maximum Sharpe Ratio:
 
 1.42
 
-An Efficient Frontier plot is generated and saved in the outputs/ directory.
+An Efficient Frontier visualization is generated and saved in the `outputs/` directory.
 
-Project Structure
+---
+
+## Project Structure
+
+
 portfolio-optimization/
 
 README.md
@@ -212,65 +152,72 @@ src/
 outputs/
     efficient_frontier.png
     optimal_portfolio.txt
-Technology Stack
+
+
+---
+
+## Technology Stack
 
 Python
 
-NumPy
+Libraries used:
 
-Pandas
+- pandas
+- numpy
+- yfinance
+- matplotlib
+- scipy (optional)
 
-yfinance
+---
 
-Matplotlib
-
-SciPy (optional for numerical optimization)
-
-How to Run
+## How to Run
 
 Install dependencies:
 
+
 pip install -r requirements.txt
 
-Execute optimization:
+
+Run the optimization script:
+
 
 python src/optimize.py
 
-Outputs:
 
-Efficient Frontier plot
+Outputs generated:
 
-Optimal portfolio weights
+- Efficient Frontier plot
+- Optimal portfolio weights
+- Maximum Sharpe Ratio
 
-Maximum Sharpe Ratio
+---
 
-Key Concepts Demonstrated
+## Key Concepts Demonstrated
 
-Mean-Variance Optimization
+- Modern Portfolio Theory
+- Mean-Variance Optimization
+- Covariance-based risk modeling
+- Monte Carlo portfolio simulation
+- Risk-adjusted return evaluation
+- Efficient Frontier visualization
 
-Covariance-based risk modeling
+---
 
-Monte Carlo portfolio simulation
+## Future Improvements
 
-Risk-adjusted performance measurement
+Possible extensions:
 
-Efficient Frontier analysis
+- Incorporate a non-zero risk-free rate
+- Annualize return and volatility
+- Add portfolio constraints (no short selling)
+- Implement numerical optimization using SciPy
+- Perform rolling window backtesting
+- Compare against equal-weight benchmark
 
-Extensions (Future Improvements)
+---
 
-Incorporating non-zero risk-free rate
+## Author
 
-Annualization of return and volatility
+Brian Lin/ Kelvin Mao
 
-Constrained optimization (no short-selling, weight bounds)
-
-Comparison with equal-weight benchmark
-
-Rolling window backtesting
-
-Use of SciPy optimizer instead of brute-force Monte Carlo
-
-Author
-
-Kelvin Mao
 Quantitative Finance / Data-Driven Investment Modeling
