@@ -6,11 +6,11 @@ This project implements a portfolio optimization framework based on **Modern Por
 
 Using historical market data, the model:
 
-- Estimates expected returns and covariance matrix  
-- Simulates thousands of random portfolios using Monte Carlo methods  
-- Computes portfolio volatility and Sharpe Ratio  
-- Identifies the maximum Sharpe portfolio  
-- Visualizes the Efficient Frontier  
+- Estimates expected returns and covariance matrix
+- Simulates thousands of random portfolios using Monte Carlo methods
+- Computes portfolio volatility and Sharpe Ratio
+- Identifies the maximum Sharpe portfolio
+- Visualizes the Efficient Frontier
 
 The objective is to construct an optimal portfolio allocation under a mean-variance framework.
 
@@ -29,7 +29,7 @@ Historical price data is downloaded from **Yahoo Finance** using the `yfinance` 
 
 Data period:
 
-2018 - Present
+2018 – Present
 
 Frequency:
 
@@ -41,9 +41,9 @@ Daily adjusted close prices.
 
 Let:
 
-- **μ** = expected return vector  
-- **Σ** = covariance matrix  
-- **w** = portfolio weights  
+- **μ** = expected return vector
+- **Σ** = covariance matrix
+- **w** = portfolio weights
 
 ### Expected Portfolio Return
 
@@ -111,6 +111,14 @@ The optimal portfolio is highlighted on the Efficient Frontier.
 
 ---
 
+# Results
+
+### Efficient Frontier
+
+![Efficient Frontier](outputs/efficient_frontier.png)
+
+---
+
 ## Example Output
 
 Example optimal portfolio:
@@ -124,12 +132,11 @@ Maximum Sharpe Ratio:
 
 1.42
 
-An Efficient Frontier visualization is generated and saved in the `outputs/` directory.
-
 ---
 
 ## Project Structure
 
+```text
 portfolio-optimization/
 
 README.md
@@ -137,9 +144,6 @@ requirements.txt
 
 data/
     prices.csv
-
-notebooks/
-    exploration.ipynb
 
 src/
     download_data.py
@@ -151,6 +155,9 @@ src/
 outputs/
     efficient_frontier.png
     optimal_portfolio.txt
+````
+
+---
 
 ## Technology Stack
 
@@ -158,11 +165,11 @@ Python
 
 Libraries used:
 
-- pandas
-- numpy
-- yfinance
-- matplotlib
-- scipy (optional)
+* pandas
+* numpy
+* yfinance
+* matplotlib
+* scipy (optional)
 
 ---
 
@@ -170,32 +177,32 @@ Libraries used:
 
 Install dependencies:
 
-
+```bash
 pip install -r requirements.txt
-
+```
 
 Run the optimization script:
 
-
+```bash
 python src/optimize.py
-
+```
 
 Outputs generated:
 
-- Efficient Frontier plot
-- Optimal portfolio weights
-- Maximum Sharpe Ratio
+* Efficient Frontier plot
+* Optimal portfolio weights
+* Maximum Sharpe Ratio
 
 ---
 
 ## Key Concepts Demonstrated
 
-- Modern Portfolio Theory
-- Mean-Variance Optimization
-- Covariance-based risk modeling
-- Monte Carlo portfolio simulation
-- Risk-adjusted return evaluation
-- Efficient Frontier visualization
+* Modern Portfolio Theory
+* Mean-Variance Optimization
+* Covariance-based risk modeling
+* Monte Carlo portfolio simulation
+* Risk-adjusted return evaluation
+* Efficient Frontier visualization
 
 ---
 
@@ -203,17 +210,18 @@ Outputs generated:
 
 Possible extensions:
 
-- Incorporate a non-zero risk-free rate
-- Annualize return and volatility
-- Add portfolio constraints (no short selling)
-- Implement numerical optimization using SciPy
-- Perform rolling window backtesting
-- Compare against equal-weight benchmark
+* Incorporate a non-zero risk-free rate
+* Annualize return and volatility
+* Add portfolio constraints (no short selling)
+* Implement numerical optimization using SciPy
+* Perform rolling window backtesting
+* Compare against equal-weight benchmark
 
 ---
 
 ## Author
 
-Brian Lin/ Kelvin Mao
+Brian Lin
+Kelvin Mao
 
 Quantitative Finance / Data-Driven Investment Modeling
