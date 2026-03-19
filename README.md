@@ -115,7 +115,7 @@ The optimal portfolio is highlighted on the Efficient Frontier.
 
 ### Efficient Frontier
 
-![Efficient Frontier](outputs/efficient_frontier.png)
+![Result](images/result.png)
 
 ---
 
