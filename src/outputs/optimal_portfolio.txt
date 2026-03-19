@@ -1,0 +1,10 @@
+Optimal Portfolio Allocation
+============================
+AAPL: 39.26%
+MSFT: 7.22%
+NVDA: 53.50%
+SPY: 0.02%
+
+Expected Return: 0.0017
+Volatility: 0.0233
+Sharpe Ratio: 0.0728
