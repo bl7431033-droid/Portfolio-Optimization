@@ -30,7 +30,7 @@ def plot_efficient_frontier(simulation_results, optimal_portfolio, output_path="
     plt.title("Efficient Frontier")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(output_path, dpi=300)
+    plt.savefig("images/result.png")
     plt.show()
 
     print(f"Efficient Frontier plot saved to: {output_path}")

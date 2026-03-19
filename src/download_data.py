@@ -6,7 +6,7 @@ import pandas as pd
 def download_price_data(stocks, start_date="2018-01-01", output_path="data/prices.csv"):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    data = yf.download(stocks, start=start_date)["Adj Close"]
+    data = yf.download(stocks, start=start_date)["Close"]
 
     if data.empty:
         raise ValueError("No data was downloaded. Please check ticker symbols or internet connection.")
